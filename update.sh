@@ -1,6 +1,6 @@
 #!/bin/sh
 
-make git html
+make $@
 rm -f demo.dat
 bin/supervisorctl restart all
 
