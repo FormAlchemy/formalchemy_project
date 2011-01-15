@@ -12,9 +12,13 @@ The FormAlchemy Project is a set of packages related to ref:`FormAlchemy`
 You can read more about each project by browsing this documentation and each
 project's documentation.
 
-Projects are hosted on `GitHub <https://github.com/FormAlchemy>`_. Any issue related to FormAlchemy should be report here.
+Projects are hosted on `GitHub <https://github.com/FormAlchemy>`_. Any issue
+related to FormAlchemy should be report here.
 
-There is also a live `demo </demo/admin/>`_ of what you can do with all those
+We also have a `Google Group <http://groups.google.com/group/formalchemy>`_ and
+an irc channel: ``/join #formalchemy`` on `Freenode <http://freenode.net>`_.
+
+There is also a live `demo <./demo/admin/>`_ of what you can do with all those
 packages.
 
 
@@ -22,7 +26,6 @@ About FormAlchemy
 ==========================
 
 FormAlchemy got his own About page since it's the main project.
-The full documentation can be found at `/formalchemy </formalchemy>`_.
 
 Content:
 
@@ -31,18 +34,23 @@ Content:
 
    formalchemy
 
+Full documentation
+--------------------
+
+The full documentation can be found at `/formalchemy <./formalchemy>`_.
+
 About fa.jquery
 ==========================
 
 Description
 --------------------
 
-fa.jquery is a set of renderer based on jQuery.ui
+fa.jquery is a set of renderer for FormAlchemy based on `jQuery.ui <http://jqueryui.com/>`_
 
 Full documentation
 --------------------
 
-The full documentation is available at `/fa.jquery </fa.jquery>`_
+The full documentation is available at `/fa.jquery <./fa.jquery>`_
 
 About pyramid_formalchemy
 ==========================
@@ -55,5 +63,5 @@ pyramid_formalchemy is a set of view and model designed to help you to build an 
 Full documentation
 --------------------
 
-The full documentation is available at `/pyramid_formalchemy </pyramid_formalchemy>`_
+The full documentation is available at `/pyramid_formalchemy <./pyramid_formalchemy>`_
 

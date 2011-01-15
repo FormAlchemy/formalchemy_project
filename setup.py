@@ -1,26 +1,47 @@
-from setuptools import setup, find_packages
-import sys, os
+import os
+import sys
 
-version = '0.0'
+from setuptools import setup, find_packages
+
+here = os.path.abspath(os.path.dirname(__file__))
+README = open(os.path.join(here, 'README.txt')).read()
+CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
+
+requires = [
+    'pyramid',
+    'SQLAlchemy',
+    'transaction',
+    'repoze.tm2',
+    'zope.sqlalchemy',
+    'WebError',
+    ]
+
+if sys.version_info[:3] < (2,5,0):
+    requires.append('pysqlite')
 
 setup(name='formalchemy_project',
-      version=version,
-      description="",
-      long_description="""\
-""",
-      classifiers=[], # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
-      keywords='',
-      author='Gael Pasgrimaud',
-      author_email='gael@gawel.org',
+      version='0.0',
+      description='formalchemy_project',
+      long_description=README + '\n\n' +  CHANGES,
+      classifiers=[
+        "Programming Language :: Python",
+        "Framework :: Pylons",
+        "Topic :: Internet :: WWW/HTTP",
+        "Topic :: Internet :: WWW/HTTP :: WSGI :: Application",
+        ],
+      author='',
+      author_email='',
       url='',
-      license='MIT',
-      packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
+      keywords='web wsgi bfg pylons pyramid',
+      packages=find_packages(),
       include_package_data=True,
       zip_safe=False,
-      install_requires=[
-          # -*- Extra requirements: -*-
-      ],
-      entry_points="""
-      # -*- Entry points: -*-
+      test_suite='formalchemy_project',
+      install_requires = requires,
+      entry_points = """\
+      [paste.app_factory]
+      main = formalchemy_project:main
       """,
+      paster_plugins=['pyramid'],
       )
+
