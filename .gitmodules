@@ -1,0 +1,9 @@
+[submodule "formalchemy"]
+	path = formalchemy
+	url = git@github.com:FormAlchemy/formalchemy.git
+[submodule "pyramid_formalchemy"]
+	path = pyramid_formalchemy
+	url = git@github.com:FormAlchemy/pyramid_formalchemy.git
+[submodule "fa.jquery"]
+	path = fa.jquery
+	url = git@github.com:FormAlchemy/fa.jquery.git
