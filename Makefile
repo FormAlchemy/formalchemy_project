@@ -26,4 +26,3 @@ clean:
 	rm -Rf fa.jquery/docs/_build
 	rm -Rf docs/_build
 
-
