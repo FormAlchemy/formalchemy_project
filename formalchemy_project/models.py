@@ -45,7 +45,7 @@ def populate():
     import random
     session = DBSession()
     for i in range(50):
-        article = Article(
+        article = Article(id=i,
                 title='Article %s' % i,
                 text='''Heading
 =====================
@@ -84,7 +84,7 @@ pellentesque lacus interdum in. Vestibulum in nunc at nulla ultrices laoreet.
         session.add(article)
 
     for i in range(100):
-        widgets = Widgets(
+        widgets = Widgets(id=i,
                 autocomplete=random.choice(['%sanux' % s for s in 'BCDFGHJKLMNP']+['']),
                 color = random.choice(["#EEEEEE", "#FFFF88", "#FF7400", "#CDEB8B", "#6BBA70"]),
                 slider = random.choice(range(0, 100, 10)),

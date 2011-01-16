@@ -10,8 +10,11 @@ def main(global_config, **settings):
     engine = engine_from_config(settings, 'sqlalchemy.')
     initialize_sql(engine)
     config = Configurator(settings=settings)
+
+    # formalchemy configuration to enable jquery.ui
     pyramid_formalchemy.include_jquery(config)
     pyramid_formalchemy.configure(config, package='formalchemy_project', use_jquery=True)
+
     return config.make_wsgi_app()
 
 
