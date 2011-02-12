@@ -2,7 +2,6 @@ from pyramid.config import Configurator
 from sqlalchemy import engine_from_config
 
 from formalchemy_project.models import initialize_sql
-import pyramid_formalchemy
 
 def main(global_config, **settings):
     """ This function returns a Pyramid WSGI application.
@@ -11,9 +10,10 @@ def main(global_config, **settings):
     initialize_sql(engine)
     config = Configurator(settings=settings)
 
-    # formalchemy configuration to enable jquery.ui
-    pyramid_formalchemy.include_jquery(config)
-    pyramid_formalchemy.configure(config, package='formalchemy_project', use_jquery=True)
+    # pyramid_formalchemy's configuration
+    config.include('pyramid_formalchemy')
+    config.include('fa.jquery')
+    config.formalchemy_admin('admin', package='formalchemy_project', view='fa.jquery.pyramid.ModelView')
 
     return config.make_wsgi_app()
 
