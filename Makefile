@@ -7,7 +7,12 @@ develop:
 	bin/buildout
 
 git:
+	git pull origin master
 	git submodule foreach git pull origin master
+
+push:
+	git submodule foreach git push origin master
+	git push origin master
 
 html:
 	cd pyramid_formalchemy/docs; $(MAKE) html
