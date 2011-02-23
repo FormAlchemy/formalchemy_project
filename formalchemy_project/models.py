@@ -7,8 +7,10 @@ from sqlalchemy import Integer
 from sqlalchemy import Unicode
 from sqlalchemy import Date
 from sqlalchemy import DateTime
+from sqlalchemy import ForeignKey
 
 from sqlalchemy.exc import IntegrityError
+from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 
 from sqlalchemy.orm import scoped_session
@@ -41,9 +43,56 @@ class Widgets(Base):
     date = Column(Date)
     date_time = Column(DateTime, default=datetime.now)
 
+
+class User(Base):
+    __tablename__ = 'users'
+    id = Column(Integer, primary_key=True)
+    name = Column(Unicode)
+    group_id = Column(Integer, ForeignKey('groups.id'))
+    group = relationship("Group")
+
+class Group(Base):
+    __tablename__ = 'groups'
+    id = Column(Integer, primary_key=True)
+    name = Column(Unicode)
+    permission_id = Column(Integer, ForeignKey('permissions.id'))
+    permissions = relationship("Permission")
+
+    def __unicode__(self):
+        return self.name
+
+class Permission(Base):
+    __tablename__ = 'permissions'
+    id = Column(Integer, primary_key=True)
+    name = Column(Unicode)
+
+    def __unicode__(self):
+        return self.name
+
 def populate():
     import random
     session = DBSession()
+
+    for i, name in enumerate(['Read', 'Write']):
+        o = Permission()
+        o.name = name
+        session.add(o)
+        p = o
+
+    for i, name in enumerate(['Admins', 'Users']):
+        o = Group()
+        o.name = name
+        o.permission = p
+        session.add(o)
+        g = o
+
+    for i, name in enumerate(['John', 'Jack', 'Daniel']):
+        o = User()
+        o.name = name
+        o.group = g
+        session.add(o)
+
+
     for i in range(50):
         article = Article(id=i,
                 title='Article %s' % i,
