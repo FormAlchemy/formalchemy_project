@@ -2,6 +2,6 @@
 
 cd $(dirname $0)
 
-rm -f demo.dat
+rm -f demo.db
 bin/supervisorctl restart all
 
