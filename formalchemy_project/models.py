@@ -78,6 +78,7 @@ def populate():
         o.name = name
         session.add(o)
         p = o
+    transaction.commit()
 
     for i, name in enumerate(['Admins', 'Users']):
         o = Group()
@@ -85,6 +86,7 @@ def populate():
         o.permission = p
         session.add(o)
         g = o
+    transaction.commit()
 
     for i, name in enumerate(['John', 'Jack', 'Daniel']):
         o = User()
