@@ -10,7 +10,7 @@ from sqlalchemy import DateTime
 from sqlalchemy import ForeignKey
 
 from sqlalchemy.exc import IntegrityError
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relation
 from sqlalchemy.ext.declarative import declarative_base
 
 from sqlalchemy.orm import scoped_session
@@ -49,14 +49,17 @@ class User(Base):
     id = Column(Integer, primary_key=True)
     name = Column(Unicode)
     group_id = Column(Integer, ForeignKey('groups.id'))
-    group = relationship("Group")
+    group = relation("Group", backref='users')
+
+    def __unicode__(self):
+        return self.name
 
 class Group(Base):
     __tablename__ = 'groups'
     id = Column(Integer, primary_key=True)
     name = Column(Unicode)
     permission_id = Column(Integer, ForeignKey('permissions.id'))
-    permissions = relationship("Permission")
+    permissions = relation("Permission", backref="groups")
 
     def __unicode__(self):
         return self.name
@@ -75,23 +78,24 @@ def populate():
 
     for i, name in enumerate(['Read', 'Write']):
         o = Permission()
+        o.id = i
         o.name = name
         session.add(o)
-        p = o
     transaction.commit()
 
     for i, name in enumerate(['Admins', 'Users']):
         o = Group()
+        o.id = i
         o.name = name
-        o.permission = p
+        o.permission = random.choice(session.query(Permission).all())
         session.add(o)
-        g = o
     transaction.commit()
 
     for i, name in enumerate(['John', 'Jack', 'Daniel']):
         o = User()
+        o.id = i
         o.name = name
-        o.group = g
+        o.group = random.choice(session.query(Group).all())
         session.add(o)
 
 
