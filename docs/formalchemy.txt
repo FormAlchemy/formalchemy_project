@@ -79,9 +79,9 @@ To edit multiple objects, bind them to a Grid instead::
 
 Which results in:
 
-Saving changes is similarly easy. (Here we're using Pylons-style request.params(); adjust for your framework of choice as necessary)::
+Saving changes is similarly easy. (Here we're using Pylons-style request.params; adjust for your framework of choice as necessary)::
 
-  fs = FieldSet(order1, data=request.params())
+  fs = FieldSet(order1, data=request.params)
   if fs.validate():
       fs.sync()
       session.commit()
