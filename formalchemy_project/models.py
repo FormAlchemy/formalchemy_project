@@ -28,7 +28,7 @@ class Article(Base):
     __tablename__ = 'articles'
 
     id = Column(Integer, primary_key=True)
-    title = Column(Unicode)
+    title = Column(Unicode, nullable=False)
     text = Column(HTML)
     publication_date = Column(Date, default=datetime.now)
 
