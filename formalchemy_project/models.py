@@ -2,6 +2,7 @@
 import transaction
 import logging
 
+from sqlalchemy import Table
 from sqlalchemy import Column
 from sqlalchemy import Integer
 from sqlalchemy import Unicode
@@ -54,12 +55,16 @@ class User(Base):
     def __unicode__(self):
         return self.name
 
+group_permissions = Table('group_permissions', Base.metadata,
+        Column('permission_id', Integer, ForeignKey('permissions.id')),
+        Column('group_id', Integer, ForeignKey('groups.id')),
+    )
+
 class Group(Base):
     __tablename__ = 'groups'
     id = Column(Integer, primary_key=True)
     name = Column(Unicode)
-    permission_id = Column(Integer, ForeignKey('permissions.id'))
-    permissions = relation("Permission", backref="groups")
+    permissions = relation("Permission", secondary=group_permissions, backref="groups")
 
     def __unicode__(self):
         return self.name
@@ -76,7 +81,7 @@ def populate():
     import random
     session = DBSession()
 
-    for i, name in enumerate(['Read', 'Write']):
+    for i, name in enumerate(['Admin', 'Read', 'Write']):
         o = Permission()
         o.id = i
         o.name = name
@@ -87,7 +92,7 @@ def populate():
         o = Group()
         o.id = i
         o.name = name
-        o.permission = random.choice(session.query(Permission).all())
+        o.permissions.append(random.choice(session.query(Permission).all()))
         session.add(o)
     transaction.commit()
 

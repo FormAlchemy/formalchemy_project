@@ -15,7 +15,7 @@ fa_config.engine = jq.TemplateEngine()
 
 ## Use jquery renderers
 forms.FieldSet.default_renderers.update(jq.default_renderers)
-#forms.FieldSet.default_renderers['dropdown'] = jq.relations()
+forms.FieldSet.default_renderers['dropdown'] = jq.relations()
 
 class FieldSet(forms.FieldSet):
     pass
