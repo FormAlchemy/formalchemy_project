@@ -14,14 +14,16 @@ def main(global_config, **settings):
     config.include('pyramid_formalchemy')
     config.include('fa.jquery')
 
-    # admin UI
+    # Admin UI (Used for the demo. Not really useful here...)
     config.formalchemy_admin('/admin', package='formalchemy_project', view='fa.jquery.pyramid.ModelView')
 
     # Article admin UI. Use a custom query_factory to filter by user
 
+    # Here is the interesting part
     def query_factory(request, query, id=None):
         """this query factory use request.matchdict to retrieve user's
-        articles. Of course, you can do anything"""
+        articles. Of course, you can do anything like check that the user found
+        in matchdict is the REMOTE_USER"""
         user = request.session_factory.query(models.User).filter_by(name=request.matchdict['user']).one()
         if id:
             return query.filter_by(user=user, id=id).one()

@@ -52,7 +52,7 @@ class User(Base):
     id = Column(Integer, primary_key=True)
     name = Column(Unicode)
     group_id = Column(Integer, ForeignKey('groups.id'))
-    group = relation("Group", backref='users')
+    group = relation("Group", uselist=False, backref='users')
 
     def __unicode__(self):
         return self.name
