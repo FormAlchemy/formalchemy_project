@@ -50,7 +50,7 @@ class Widgets(Base):
 class User(Base):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
-    name = Column(Unicode)
+    name = Column(Unicode, nullable=False)
     group_id = Column(Integer, ForeignKey('groups.id'))
     group = relation("Group", uselist=False, backref='users')
 
@@ -65,7 +65,7 @@ group_permissions = Table('group_permissions', Base.metadata,
 class Group(Base):
     __tablename__ = 'groups'
     id = Column(Integer, primary_key=True)
-    name = Column(Unicode)
+    name = Column(Unicode, nullable=False)
     permissions = relation("Permission", secondary=group_permissions, backref="groups")
 
     def __unicode__(self):
@@ -74,7 +74,7 @@ class Group(Base):
 class Permission(Base):
     __tablename__ = 'permissions'
     id = Column(Integer, primary_key=True)
-    name = Column(Unicode)
+    name = Column(Unicode, nullable=False)
 
     def __unicode__(self):
         return self.name
