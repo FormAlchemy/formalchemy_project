@@ -29,5 +29,8 @@ Widgets = FieldSet(models.Widgets)
 Widgets.configure()
 Widgets.autocomplete.set(renderer=jq.autocomplete(['%sanux' % s for s in 'BCDFGHJKLMNP']))
 
+Article = FieldSet(models.Article)
+Article.configure()
+del Article.user
 ## Initialize grids
 

@@ -32,6 +32,8 @@ class Article(Base):
     title = Column(Unicode, nullable=False)
     text = Column(HTML)
     publication_date = Column(Date, default=datetime.now)
+    user_id = Column(Integer, ForeignKey('users.id'))
+    user = relation('User')
 
 
 class Widgets(Base):
@@ -140,7 +142,9 @@ non malesuada neque erat ac augue. Sed elit ipsum, placerat vitae accumsan
 quis, tempor in tellus. Vestibulum tempus consequat libero, sit amet
 pellentesque lacus interdum in. Vestibulum in nunc at nulla ultrices laoreet.
 ''',
-            publication_date = datetime.utcnow())
+            publication_date = datetime.utcnow(),
+            user=random.choice(session.query(User).all())
+            )
         session.add(article)
 
     for i in range(100):
