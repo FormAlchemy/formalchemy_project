@@ -1,6 +1,6 @@
 TEST=$(PWD)/bin/nosetests
 
-all: git clean test html
+all: git clean html
 
 develop:
 	python2.6 bootstrap.py --distribute
