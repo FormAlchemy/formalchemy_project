@@ -27,7 +27,7 @@ from datetime import datetime
 
 from pyramid.i18n import TranslationStringFactory
 
-ts = TranslationStringFactory('fa_jquery')
+ts = TranslationStringFactory('formalchemy_project')
 
 def _(value):
     return dict(msgid=ts(value))
