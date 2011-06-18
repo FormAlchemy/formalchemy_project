@@ -25,14 +25,21 @@ Base = declarative_base()
 from fa.jquery.utils import HTML, Color, Slider
 from datetime import datetime
 
+from pyramid.i18n import TranslationStringFactory
+
+ts = TranslationStringFactory('fa_jquery')
+
+def _(value):
+    return dict(msgid=ts(value))
+
 class Article(Base):
     __tablename__ = 'articles'
 
-    id = Column(Integer, primary_key=True)
-    title = Column(Unicode, nullable=False)
-    text = Column(HTML)
-    publication_date = Column(Date, default=datetime.now)
-    user_id = Column(Integer, ForeignKey('users.id'))
+    id = Column(Integer, primary_key=True, info=_('Id'))
+    title = Column(Unicode, nullable=False, info=_('Title'))
+    text = Column(HTML, info=_('Text'))
+    publication_date = Column(Date, default=datetime.now, info=_('Publication date'))
+    user_id = Column(Integer, ForeignKey('users.id'), info=_('User'))
     user = relation('User')
 
 
