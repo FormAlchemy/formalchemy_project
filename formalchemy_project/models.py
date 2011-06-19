@@ -27,10 +27,13 @@ from datetime import datetime
 
 from pyramid.i18n import TranslationStringFactory
 
+from pyramid_formalchemy import actions
+from pyramid_formalchemy import renderers
+
 ts = TranslationStringFactory('formalchemy_project')
 
 def _(value):
-    return dict(msgid=ts(value))
+    return dict(label=ts(value))
 
 class Article(Base):
     __tablename__ = 'articles'
