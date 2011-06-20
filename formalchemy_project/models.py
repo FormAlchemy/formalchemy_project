@@ -2,8 +2,9 @@
 import transaction
 import logging
 
+from formalchemy import Column
+
 from sqlalchemy import Table
-from sqlalchemy import Column
 from sqlalchemy import Integer
 from sqlalchemy import Unicode
 from sqlalchemy import Date
@@ -25,43 +26,52 @@ Base = declarative_base()
 from fa.jquery.utils import HTML, Color, Slider
 from datetime import datetime
 
-from pyramid.i18n import TranslationStringFactory
-
 from pyramid_formalchemy import actions
 from pyramid_formalchemy import renderers
 
-ts = TranslationStringFactory('formalchemy_project')
+from pyramid.i18n import TranslationStringFactory
 
-def _(value):
-    return dict(label=ts(value))
+_ = TranslationStringFactory('formalchemy_project')
 
 class Article(Base):
+    __label__ = _('Article')
+    __plural__ = _('Articles')
     __tablename__ = 'articles'
 
-    id = Column(Integer, primary_key=True, info=_('Id'))
-    title = Column(Unicode, nullable=False, info=_('Title'))
-    text = Column(HTML, info=_('Text'))
-    publication_date = Column(Date, default=datetime.now, info=_('Publication date'))
-    user_id = Column(Integer, ForeignKey('users.id'), info=_('User'))
+    id = Column(Integer, primary_key=True, label=_('Id'))
+    title = Column(Unicode, nullable=False, label=_('Title'))
+    text = Column(HTML, label=_('Text'))
+    publication_date = Column(Date, default=datetime.now, label=_('Publication date'))
+    user_id = Column(Integer, ForeignKey('users.id'))
     user = relation('User')
 
 
 class Widgets(Base):
+    __label__ = _('Widget')
+    __plural__ = _('Widgets')
     __tablename__ = 'widgets'
 
     id = Column(Integer, primary_key=True)
-    autocomplete = Column(Unicode)
-    slider = Column(Slider, default=0)
-    color = Column(Color)
-    date = Column(Date)
-    date_time = Column(DateTime, default=datetime.now)
+    autocomplete = Column(Unicode, label=_('Auto complete'))
+    slider = Column(Slider, default=0, label=_('Slider'))
+    color = Column(Color, label=_('Color'))
+    date = Column(Date, label=_('Date'))
+    date_time = Column(DateTime, default=datetime.now, label=_('Date and time'))
 
 
 class User(Base):
+    __label__ = _('User')       # label used in UI
+    __plural__ = _('Users')     # plural used in UI
     __tablename__ = 'users'
+
     id = Column(Integer, primary_key=True)
-    name = Column(Unicode, nullable=False)
-    group_id = Column(Integer, ForeignKey('groups.id'))
+    name = Column(Unicode, nullable=False, label=_('Name')) # label is used in forms
+
+    # the renderer argument will be used for the group relation. You can use a
+    # backref_renderer option to set the renderer of the users relation
+    group_id = Column(Integer, ForeignKey('groups.id'),
+                      renderer=renderers.PyramidAutocompleteFieldRenderer(filter_by='name'))
+
     group = relation("Group", uselist=False, backref='users')
 
     def __unicode__(self):
@@ -73,18 +83,25 @@ group_permissions = Table('group_permissions', Base.metadata,
     )
 
 class Group(Base):
+    __label__ = _('Group')
+    __plural__ = _('Groups')
     __tablename__ = 'groups'
+
+    edit_buttons = actions.Actions('pyramid_formalchemy.actions.save', 'pyramid_formalchemy.actions.cancel')
+
     id = Column(Integer, primary_key=True)
-    name = Column(Unicode, nullable=False)
+    name = Column(Unicode, nullable=False, label=_('Name'))
     permissions = relation("Permission", secondary=group_permissions, backref="groups")
 
     def __unicode__(self):
         return self.name
 
 class Permission(Base):
+    __label__ = _('Permission')
+    __plural__ = _('Permissions')
     __tablename__ = 'permissions'
     id = Column(Integer, primary_key=True)
-    name = Column(Unicode, nullable=False)
+    name = Column(Unicode, nullable=False, label=_('Name'))
 
     def __unicode__(self):
         return self.name

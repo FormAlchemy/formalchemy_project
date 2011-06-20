@@ -10,6 +10,11 @@ from formalchemy.ext.fsblob import FileFieldRenderer
 from formalchemy.ext.fsblob import ImageFieldRenderer
 import fa.jquery as jq
 
+from pyramid.i18n import TranslationStringFactory
+
+_ = TranslationStringFactory('formalchemy_project')
+
+
 fa_config.encoding = 'utf-8'
 fa_config.engine = jq.TemplateEngine()
 
@@ -35,16 +40,12 @@ Article = FieldSet(models.Article)
 Article.configure()
 del Article.user
 
-# User.group is not a many to many relation
-User = FieldSet(models.User)
-User.group.set(renderer=jq.relation())
-
 # The Group form is used to view an instance in the admin UI
 Group = FieldSet(models.Group)
 
 # playing with tabs...
 GroupTabs = jq.Tabs('tabs',
-        ('users', 'Users', Group.copy('users')),
+        ('users', _('Users'), Group.copy('users')),
         ('permissions', 'Permissions', Group.copy('permissions')),
     )
 

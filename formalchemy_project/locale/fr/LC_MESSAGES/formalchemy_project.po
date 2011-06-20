@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: formalchemy_project 0.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2011-06-18 17:55+0200\n"
-"PO-Revision-Date: 2011-06-18 19:18+0200\n"
+"PO-Revision-Date: 2011-06-20 19:59+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: fr <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
@@ -18,23 +18,84 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.5\n"
 
+#: formalchemy_project/forms.py:48 formalchemy_project/models.py:64
+msgid "Users"
+msgstr "Utilisateurs"
+
+#: formalchemy_project/models.py:37
+msgid "Article"
+msgstr "Article"
+
 #: formalchemy_project/models.py:38
+msgid "Articles"
+msgstr "Articles"
+
+#: formalchemy_project/models.py:41
 msgid "Id"
 msgstr "Id"
 
-#: formalchemy_project/models.py:39
+#: formalchemy_project/models.py:42
 msgid "Title"
 msgstr "Titre"
 
-#: formalchemy_project/models.py:40
+#: formalchemy_project/models.py:43
 msgid "Text"
 msgstr "Texte"
 
-#: formalchemy_project/models.py:41
+#: formalchemy_project/models.py:44
 msgid "Publication date"
 msgstr "Date de publication"
 
-#: formalchemy_project/models.py:42
+#: formalchemy_project/models.py:50
+msgid "Widget"
+msgstr "Widget"
+
+#: formalchemy_project/models.py:51
+msgid "Widgets"
+msgstr "Widgets"
+
+#: formalchemy_project/models.py:55
+msgid "Auto complete"
+msgstr "Auto complétion"
+
+#: formalchemy_project/models.py:56
+msgid "Slider"
+msgstr "Slider"
+
+#: formalchemy_project/models.py:57
+msgid "Color"
+msgstr "Couleur"
+
+#: formalchemy_project/models.py:58
+msgid "Date"
+msgstr "Date"
+
+#: formalchemy_project/models.py:59
+msgid "Date and time"
+msgstr "Date et heure"
+
+#: formalchemy_project/models.py:63
 msgid "User"
 msgstr "Utilisateur"
+
+#: formalchemy_project/models.py:67 formalchemy_project/models.py:85
+#: formalchemy_project/models.py:96
+msgid "Name"
+msgstr "Nom"
+
+#: formalchemy_project/models.py:81
+msgid "Group"
+msgstr "Groupe"
+
+#: formalchemy_project/models.py:82
+msgid "Groups"
+msgstr "Groupes"
+
+#: formalchemy_project/models.py:92
+msgid "Permission"
+msgstr "Permission"
+
+#: formalchemy_project/models.py:93
+msgid "Permissions"
+msgstr "Permissions"
 

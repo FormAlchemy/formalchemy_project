@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: formalchemy_project 0.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2011-06-18 19:18+0200\n"
+"POT-Creation-Date: 2011-06-20 19:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,23 +18,84 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.5\n"
 
+#: formalchemy_project/forms.py:48 formalchemy_project/models.py:64
+msgid "Users"
+msgstr ""
+
+#: formalchemy_project/models.py:37
+msgid "Article"
+msgstr ""
+
 #: formalchemy_project/models.py:38
-msgid "Id"
-msgstr ""
-
-#: formalchemy_project/models.py:39
-msgid "Title"
-msgstr ""
-
-#: formalchemy_project/models.py:40
-msgid "Text"
+msgid "Articles"
 msgstr ""
 
 #: formalchemy_project/models.py:41
-msgid "Publication date"
+msgid "Id"
 msgstr ""
 
 #: formalchemy_project/models.py:42
+msgid "Title"
+msgstr ""
+
+#: formalchemy_project/models.py:43
+msgid "Text"
+msgstr ""
+
+#: formalchemy_project/models.py:44
+msgid "Publication date"
+msgstr ""
+
+#: formalchemy_project/models.py:50
+msgid "Widget"
+msgstr ""
+
+#: formalchemy_project/models.py:51
+msgid "Widgets"
+msgstr ""
+
+#: formalchemy_project/models.py:55
+msgid "Auto complete"
+msgstr ""
+
+#: formalchemy_project/models.py:56
+msgid "Slider"
+msgstr ""
+
+#: formalchemy_project/models.py:57
+msgid "Color"
+msgstr ""
+
+#: formalchemy_project/models.py:58
+msgid "Date"
+msgstr ""
+
+#: formalchemy_project/models.py:59
+msgid "Date and time"
+msgstr ""
+
+#: formalchemy_project/models.py:63
 msgid "User"
+msgstr ""
+
+#: formalchemy_project/models.py:67 formalchemy_project/models.py:85
+#: formalchemy_project/models.py:96
+msgid "Name"
+msgstr ""
+
+#: formalchemy_project/models.py:81
+msgid "Group"
+msgstr ""
+
+#: formalchemy_project/models.py:82
+msgid "Groups"
+msgstr ""
+
+#: formalchemy_project/models.py:92
+msgid "Permission"
+msgstr ""
+
+#: formalchemy_project/models.py:93
+msgid "Permissions"
 msgstr ""
 
