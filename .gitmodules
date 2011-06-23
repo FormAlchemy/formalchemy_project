@@ -7,3 +7,6 @@
 [submodule "fa.jquery"]
 	path = fa.jquery
 	url = git@github.com:FormAlchemy/fa.jquery.git
+[submodule "fa.extjs"]
+	path = fa.extjs
+	url = git@github.com:FormAlchemy/fa.extjs.git
