@@ -24,10 +24,10 @@ DBSession = scoped_session(sessionmaker(extension=ZopeTransactionExtension()))
 Base = declarative_base()
 
 from fa.jquery.utils import HTML, Color, Slider
+from fa.jquery.pyramid import renderers
 from datetime import datetime
 
 from pyramid_formalchemy import actions
-from pyramid_formalchemy import renderers
 
 from pyramid.i18n import TranslationStringFactory
 
@@ -70,7 +70,7 @@ class User(Base):
     # the renderer argument will be used for the group relation. You can use a
     # backref_renderer option to set the renderer of the users relation
     group_id = Column(Integer, ForeignKey('groups.id'),
-                      renderer=renderers.PyramidAutocompleteFieldRenderer(filter_by='name'))
+                      renderer=renderers.autocomplete_relation(filter_by='name'))
 
     group = relation("Group", uselist=False, backref='users')
 
