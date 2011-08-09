@@ -1,0 +1,103 @@
+# Portuguese (Brazil) translations for formalchemy_project.
+# Copyright (C) 2011 ORGANIZATION
+# This file is distributed under the same license as the formalchemy_project
+# project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: formalchemy_project 0.0\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2011-06-20 19:59+0200\n"
+"PO-Revision-Date: 2011-08-01 20:28-0300\n"
+"Last-Translator: Rodrigo Ferreira de Souza <rodfersou@gmail.com>\n"
+"Language-Team: pt_BR <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+
+#: formalchemy_project/forms.py:48
+#: formalchemy_project/models.py:64
+msgid "Users"
+msgstr "Usuários"
+
+#: formalchemy_project/models.py:37
+msgid "Article"
+msgstr "Artigo"
+
+#: formalchemy_project/models.py:38
+msgid "Articles"
+msgstr "Artigos"
+
+#: formalchemy_project/models.py:41
+msgid "Id"
+msgstr "Id"
+
+#: formalchemy_project/models.py:42
+msgid "Title"
+msgstr "Título"
+
+#: formalchemy_project/models.py:43
+msgid "Text"
+msgstr "Texto"
+
+#: formalchemy_project/models.py:44
+msgid "Publication date"
+msgstr "Data de publicação"
+
+#: formalchemy_project/models.py:50
+msgid "Widget"
+msgstr "Widget"
+
+#: formalchemy_project/models.py:51
+msgid "Widgets"
+msgstr "Widgets"
+
+#: formalchemy_project/models.py:55
+msgid "Auto complete"
+msgstr "Auto completação"
+
+#: formalchemy_project/models.py:56
+msgid "Slider"
+msgstr "Slider"
+
+#: formalchemy_project/models.py:57
+msgid "Color"
+msgstr "Cor"
+
+#: formalchemy_project/models.py:58
+msgid "Date"
+msgstr "Data"
+
+#: formalchemy_project/models.py:59
+msgid "Date and time"
+msgstr "Data e hora"
+
+#: formalchemy_project/models.py:63
+msgid "User"
+msgstr "Usuário"
+
+#: formalchemy_project/models.py:67
+#: formalchemy_project/models.py:85
+#: formalchemy_project/models.py:96
+msgid "Name"
+msgstr "Nome"
+
+#: formalchemy_project/models.py:81
+msgid "Group"
+msgstr "Grupo"
+
+#: formalchemy_project/models.py:82
+msgid "Groups"
+msgstr "Grupos"
+
+#: formalchemy_project/models.py:92
+msgid "Permission"
+msgstr "Permissão"
+
+#: formalchemy_project/models.py:93
+msgid "Permissions"
+msgstr "Permissões"
+
