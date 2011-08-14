@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: formalchemy_project 0.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2011-06-20 19:59+0200\n"
+"POT-Creation-Date: 2011-08-14 15:20+0200\n"
 "PO-Revision-Date: 2011-08-01 20:28-0300\n"
 "Last-Translator: Rodrigo Ferreira de Souza <rodfersou@gmail.com>\n"
 "Language-Team: pt_BR <LL@li.org>\n"
@@ -18,8 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: formalchemy_project/forms.py:48
-#: formalchemy_project/models.py:64
+#: formalchemy_project/forms.py:48 formalchemy_project/models.py:64
 msgid "Users"
 msgstr "Usuários"
 
@@ -79,25 +78,24 @@ msgstr "Data e hora"
 msgid "User"
 msgstr "Usuário"
 
-#: formalchemy_project/models.py:67
-#: formalchemy_project/models.py:85
-#: formalchemy_project/models.py:96
+#: formalchemy_project/models.py:68 formalchemy_project/models.py:93
+#: formalchemy_project/models.py:104
 msgid "Name"
 msgstr "Nome"
 
-#: formalchemy_project/models.py:81
+#: formalchemy_project/models.py:86
 msgid "Group"
 msgstr "Grupo"
 
-#: formalchemy_project/models.py:82
+#: formalchemy_project/models.py:87
 msgid "Groups"
 msgstr "Grupos"
 
-#: formalchemy_project/models.py:92
+#: formalchemy_project/models.py:100
 msgid "Permission"
 msgstr "Permissão"
 
-#: formalchemy_project/models.py:93
+#: formalchemy_project/models.py:101
 msgid "Permissions"
 msgstr "Permissões"
 
