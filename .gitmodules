@@ -10,3 +10,6 @@
 [submodule "fa.extjs"]
 	path = fa.extjs
 	url = git@github.com:FormAlchemy/fa.extjs.git
+[submodule "fa.bootstrap"]
+	path = fa.bootstrap
+	url = git@github.com:FormAlchemy/fa.bootstrap.git

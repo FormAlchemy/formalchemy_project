@@ -9,6 +9,7 @@ def main(global_config, **settings):
     engine = engine_from_config(settings, 'sqlalchemy.')
     models.initialize_sql(engine)
     config = Configurator(settings=settings)
+    config.include('pyramid_tm')
     config.add_translation_dirs('formalchemy_project:locale/')
 
     # pyramid_formalchemy's configuration

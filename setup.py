@@ -45,6 +45,7 @@ setup(name='formalchemy_project',
       entry_points = """\
       [paste.app_factory]
       main = formalchemy_project:main
+      bootstrap = formalchemy_project.fa_bootstrap:main
       """,
       paster_plugins=['pyramid'],
       )

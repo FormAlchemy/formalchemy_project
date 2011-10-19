@@ -190,5 +190,5 @@ def initialize_sql(engine):
     Base.metadata.create_all(engine)
     try:
         populate()
-    except IntegrityError, e:
+    except:
         DBSession.rollback()
